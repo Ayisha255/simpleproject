@@ -1,0 +1,26 @@
+﻿@model GymManagementSystem.Models.MembershipPlan
+
+<h2>Create Membership Plan</h2>
+
+<form asp-action="CreateMembershipPlan" method="post">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Details"></label>
+        <textarea asp-for="Details" class="form-control"></textarea>
+        <span asp-validation-for="Details" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Cost"></label>
+        <input asp-for="Cost" type="number" class="form-control" step="0.01" />
+        <span asp-validation-for="Cost" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+    <a href="@Url.Action("ManageMembershipPlans", "Admin")" class="btn btn-secondary">Cancel</a>
+</form>

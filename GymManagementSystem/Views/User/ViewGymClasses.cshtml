@@ -1,0 +1,33 @@
+﻿@model IEnumerable<GymManagementSystem.Models.GymClass>
+
+@{
+    ViewData["Title"] = "Gym Classes";
+}
+
+<h2>Available Gym Classes</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Class Name</th>
+            <th>Time</th>
+            <th>Instructor</th>
+            <th>Department</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var gymClass in Model)
+        {
+            <tr>
+                <td>@gymClass.Name</td>
+                <td>@gymClass.Time</td>
+                <td>@gymClass.Instructor</td>
+                <td>@gymClass.Department</td>
+                <td>
+                    <a href="@Url.Action("EnrollInClass", "User", new { classId = gymClass.Id })" class="btn btn-primary">Enroll</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

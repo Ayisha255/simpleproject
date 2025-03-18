@@ -1,0 +1,17 @@
+﻿@model GymManagementSystem.Models.UserMembershipPlan
+
+<h2>Your Current Membership Plan</h2>
+
+@if (Model != null)
+{
+    <div>
+        <p><strong>Plan Name:</strong> @Model.MembershipPlan.Name</p>
+        <p><strong>Details:</strong> @Model.MembershipPlan.Details</p>
+        <p><strong>Cost:</strong> @Model.MembershipPlan.Cost</p>
+        <p><strong>Enrollment Date:</strong> @Model.EnrollmentDate</p>
+    </div>
+}
+else
+{
+    <p>You are not enrolled in any membership plan. <a href="@Url.Action("ViewMembershipPlans", "User")">Enroll in a plan</a></p>
+}

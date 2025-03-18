@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "User Dashboard";
+}
+
+<h2>Welcome to your Dashboard!</h2>
+
+<ul>
+    <li><a href="@Url.Action("ViewGymClasses", "User")">View Gym Classes</a></li>
+    <li><a href="@Url.Action("ViewClassEnrollment", "User")">View Class Enrollment</a></li>
+    <li><a href="@Url.Action("ViewMembershipPlans", "User")">View Membership Plans</a></li>
+    <li><a href="@Url.Action("ViewUserPlan", "User")">View User Plan</a></li>
+
+   
+    <li><a href="@Url.Action("Logout", "Account")">Logout</a></li>
+</ul>

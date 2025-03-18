@@ -1,0 +1,36 @@
+﻿@model IEnumerable<GymManagementSystem.Models.ClassEnrollment>
+
+@{
+    ViewData["Title"] = "Your Enrollments";
+}
+
+<h2>Your Enrollments</h2>
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Error"]
+    </div>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Class Name</th>
+            <th>Instructor</th>
+            <th>Time</th>
+            <th>Department</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var enrollment in Model)
+        {
+            <tr>
+                <td>@enrollment.GymClass.Name</td>
+                <td>@enrollment.GymClass.Instructor</td>
+                <td>@enrollment.GymClass.Time</td>
+                <td>@enrollment.GymClass.Department</td>
+            </tr>
+        }
+    </tbody>
+</table>

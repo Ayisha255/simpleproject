@@ -1,0 +1,58 @@
+﻿@model GymManagementSystem.Models.User
+
+<h2>Register</h2>
+
+<form method="post">
+    <!-- Displaying Validation Errors -->
+    @if (ViewData.ModelState.ErrorCount > 0)
+    {
+        <div style="color: red;">
+            <ul>
+                @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    <li>@error.ErrorMessage</li>
+                }
+            </ul>
+        </div>
+    }
+
+    <div>
+        <label for="Username">Username:</label>
+        @Html.TextBoxFor(model => model.Username) <!-- Use TextBoxFor for correct binding -->
+        @Html.ValidationMessageFor(model => model.Username)
+    </div>
+
+    <div>
+        <label for="Password">Password:</label>
+        @Html.PasswordFor(model => model.Password) <!-- Use PasswordFor for correct binding -->
+        @Html.ValidationMessageFor(model => model.Password)
+    </div>
+
+    <div>
+        <label for="ConfirmPassword">Confirm Password:</label>
+        @Html.PasswordFor(model => model.ConfirmPassword) <!-- Assuming ConfirmPassword exists in model -->
+        @Html.ValidationMessageFor(model => model.ConfirmPassword)
+    </div>
+
+    <div>
+        <label for="BloodGroup">Blood Group:</label>
+        @Html.TextBoxFor(model => model.BloodGroup) 
+        @Html.ValidationMessageFor(model => model.BloodGroup)
+    </div>
+    <div>
+        <label for="Department">Department:</label>
+        @Html.TextBoxFor(model => model.Department)
+        @Html.ValidationMessageFor(model => model.Department)
+    </div>
+    <div>
+        <label for="UserMembershipPlan">UserMembershipPlan:</label>
+        @Html.TextBoxFor(model => model.UserMembershipPlans)
+        @Html.ValidationMessageFor(model => model.UserMembershipPlans)
+    </div>
+
+    <div>
+        <button type="submit">Register</button>
+    </div>
+</form>
+
+<p><a href="@Url.Action("Login", "Account")">Already have an account? Login here.</a></p>

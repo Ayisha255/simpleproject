@@ -1,0 +1,41 @@
+﻿@model IEnumerable<GymManagementSystem.Models.MembershipPlan>
+
+<h2>Available Membership Plans</h2>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Success"]
+    </div>
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Error"]
+    </div>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Plan Name</th>
+            <th>Details</th>
+            <th>Cost</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var plan in Model)
+        {
+            <tr>
+                <td>@plan.Name</td>
+                <td>@plan.Details</td>
+                <td>@plan.Cost</td>
+                <td>
+                    <a href="@Url.Action("EnrollInPlan", "User", new { planId = plan.Id })" class="btn btn-primary">Enroll</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

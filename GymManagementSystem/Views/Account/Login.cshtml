@@ -1,0 +1,35 @@
+﻿@model GymManagementSystem.Models.User
+
+<h2>Login</h2>
+
+<!-- Displaying Validation Errors -->
+@if (ViewData.ModelState.ErrorCount > 0)
+{
+    <div style="color: red;">
+        <ul>
+            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <li>@error.ErrorMessage</li>
+            }
+        </ul>
+    </div>
+}
+
+<form method="post">
+    <div>
+        <label for="Username">Username:</label>
+        <input type="text" id="Username" name="Username" value="@Model?.Username" required />
+    </div>
+
+    <div>
+        <label for="Password">Password:</label>
+        <input type="password" id="Password" name="Password" required />
+    </div>
+
+    <div>
+        <button type="submit" name="action" value="LoginAsAdmin">Login as Admin</button>
+        <button type="submit" name="action" value="LoginAsUser">Login as User</button>
+    </div>
+</form>
+
+<p><a href="@Url.Action("Register", "Account")">Don't have an account? Register here.</a></p>

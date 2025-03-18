@@ -1,0 +1,32 @@
+﻿@model GymManagementSystem.Models.GymClass
+
+@{
+    ViewData["Title"] = "Create Gym Class";
+}
+
+<h2>Create New Gym Class</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="Name">Class Name</label>
+        <input type="text" class="form-control" id="Name" name="Name" value="@Model.Name" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Time">Class Time</label>
+        <input type="datetime-local" class="form-control" id="Time" name="Time"
+               value="@Model?.Time.ToString("yyyy-MM-ddTHH:mm")" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Instructor">Instructor</label>
+        <input type="text" class="form-control" id="Instructor" name="Instructor" value="@Model.Instructor" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Department">Department</label>
+        <input type="text" class="form-control" id="Department" name="Department" value="@Model.Department" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create Gym Class</button>
+</form>

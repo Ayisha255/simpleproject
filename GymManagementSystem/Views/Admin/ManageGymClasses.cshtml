@@ -1,0 +1,37 @@
+﻿@model IEnumerable<GymManagementSystem.Models.GymClass>
+
+@{
+    ViewData["Title"] = "Manage Gym Classes";
+}
+
+<h2>Manage Gym Classes</h2>
+
+
+<a href="@Url.Action("CreateGymClass", "Admin")">Create Gym Class</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Class Name</th>
+            <th>Time</th>
+            <th>Instructor</th>
+            <th>Department</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var gymClass in Model)
+        {
+            <tr>
+                <td>@gymClass.Name</td>
+                <td>@gymClass.Time</td>
+                <td>@gymClass.Instructor</td>
+                <td>@gymClass.Department</td>
+                <td>
+                    <a href="@Url.Action("EditGymClass", "Admin", new { id = gymClass.Id })" class="btn btn-secondary">Edit</a>
+                    <a href="@Url.Action("DeleteGymClass", "Admin", new { id = gymClass.Id })" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

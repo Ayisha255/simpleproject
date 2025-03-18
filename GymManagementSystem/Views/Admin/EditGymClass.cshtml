@@ -1,0 +1,28 @@
+﻿@model GymManagementSystem.Models.GymClass
+
+@{
+    ViewData["Title"] = "Edit Gym Class";
+}
+
+<h2>Edit Gym Class</h2>
+
+<form asp-action="EditGymClass" method="post">
+    <div class="form-group">
+        <label for="Name">Class Name</label>
+        <input type="text" class="form-control" id="Name" name="Name" value="@Model.Name" required />
+    </div>
+    <div class="form-group">
+        <label for="Time">Class Time</label>
+        <input type="text" class="form-control" id="Time" name="Time" value="@Model.Time" required />
+    </div>
+    <div class="form-group">
+        <label for="Instructor">Instructor</label>
+        <input type="text" class="form-control" id="Instructor" name="Instructor" value="@Model.Instructor" required />
+    </div>
+    <div class="form-group">
+        <label for="Department">Department</label>
+        <input type="text" class="form-control" id="Department" name="Department" value="@Model.Department" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+    <a href="@Url.Action("ManageGymClasses", "Admin")" class="btn btn-secondary">Cancel</a>
+</form>
